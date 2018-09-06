@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-blog
+  labels:
+    app: ghost
+spec:
+  containers:
+  - image: ghost:1
+    name: blog
+    ports:
+    - containerPort: 2368
