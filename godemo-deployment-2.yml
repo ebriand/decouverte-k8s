@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: godemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: godemo
+  template:
+    metadata:
+      labels:
+        app: godemo
+    spec:
+      containers:
+      - image: pyaillet/godemo:2
+        name: godemo
+        ports:
+        - containerPort: 80
