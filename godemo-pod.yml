@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: godemo
+  labels:
+    app: godemo
+spec:
+  containers:
+  - image: pyaillet/godemo
+    name: godemo
+    ports:
+    - containerPort: 80
