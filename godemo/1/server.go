@@ -9,7 +9,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request) {
     host, _ := os.Hostname()
-    fmt.Fprintf(w, "It works on %s!", host)
+    fmt.Fprintf(w, "It works on %s!\n", host)
 }
 
 func main() {
