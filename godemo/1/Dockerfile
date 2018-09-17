@@ -1,9 +1,13 @@
-FROM golang:1.11-alpine3.7
-
-RUN apk add --no-cache curl
+FROM golang:1.11-alpine3.7 as builder
 
 COPY server.go /go
 
-RUN go build server.go
+RUN CGO_ENABLED=0 GOOS=linux go build server.go
 
-ENTRYPOINT [ "/go/server" ]
+FROM scratch
+
+EXPOSE 80
+
+COPY --from=builder /go/server /server
+
+ENTRYPOINT [ "/server" ]
